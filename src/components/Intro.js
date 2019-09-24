@@ -9,15 +9,15 @@ const Intro = () => {
     return (
         <div>
             <Carousel autoplay>
-                <div><img alt="first_carusel_image" src="http://localhost:8000/media/intro/first_carusel_image.jpg" /></div>
-                <div><img alt="second_carusel_image" src="http://localhost:8000/media/intro/second_carusel_image.jpg" /></div>
-                <div><img alt="second_carusel_image" src="http://localhost:8000/media/intro/third_carusel_image.jpg" /></div>
-                <div><img alt="second_carusel_image" src="http://localhost:8000/media/intro/fourth_carusel_image.jpg" /></div>
+                <div><img alt="first_carusel_image" src="http://54.226.199.227:8000/media/intro/first_carusel_image.jpg" /></div>
+                <div><img alt="second_carusel_image" src="http://54.226.199.227:8000/media/intro/second_carusel_image.jpg" /></div>
+                <div><img alt="second_carusel_image" src="http://54.226.199.227:8000/media/intro/third_carusel_image.jpg" /></div>
+                <div><img alt="second_carusel_image" src="http://54.226.199.227:8000/media/intro/fourth_carusel_image.jpg" /></div>
             </Carousel>
 
             <div className="bulk blue">
                 <div className="contained left white-txt">
-                    <img alt="example" src="http://localhost:8000/media/intro/leafagochi.png" />
+                    <img alt="example" src="http://54.226.199.227:8000/media/intro/leafagochi.png" />
                 </div>
 
                 <div className="contained right white-txt">
@@ -38,13 +38,13 @@ const Intro = () => {
                 </div>
 
                 <div className="contained right">
-                    <img alt="example" src="http://localhost:8000/media/intro/cutie_patutie.png" />
+                    <img alt="example" src="http://54.226.199.227:8000/media/intro/cutie_patutie.png" />
                 </div>
             </div>
 
             <div className="bulk blue">
                 <div className="contained left white-txt">
-                    <img alt="example" src="http://localhost:8000/media/intro/cool.png" />
+                    <img alt="example" src="http://54.226.199.227:8000/media/intro/cool.png" />
                 </div>
 
                 <div className="contained right white-txt">

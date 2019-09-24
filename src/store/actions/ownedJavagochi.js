@@ -42,7 +42,7 @@ export const getOwnedJcs = (user) => {
                 "Content-Type": "application/json"
             }
         }
-        axios.get(`http://localhost:8000/api/users/${user}/javagochis/`)
+        axios.get(`http://54.226.199.227:8000/api/users/${user}/javagochis/`)
         .then(res => {
             const javagochis = res.data;
             dispatch(receiveOwnedJcs(javagochis));
@@ -107,7 +107,7 @@ export const getLevel = (lvl) => {
                 "Content-Type": "application/json"
             }
         }
-        axios.get(`http://localhost:8000/api/javagochi/expmap/${lvl}/`)
+        axios.get(`http://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
         .then(res => {
             const level = res.data;
             dispatch(getJcLevelInfoEnd(level));
@@ -136,7 +136,7 @@ export const getOwnedJcById = (id) => {
                 "Content-Type": "application/json"
             }
         }
-        axios.get(`http://localhost:8000/api/javagochi/owned/${id}/`)
+        axios.get(`http://54.226.199.227:8000/api/javagochi/owned/${id}/`)
         .then(res => {
             const javagochi = res.data;
             dispatch(receivedOwnedJcById(javagochi));
@@ -185,7 +185,7 @@ export const useItem = (item, jcId) => {
             }
         }
 
-        axios.put(`http://localhost:8000/api/javagochi/owned/${jcId}/useitem/`, {
+        axios.put(`http://54.226.199.227:8000/api/javagochi/owned/${jcId}/useitem/`, {
             item: item.item.name,
             user: item.owner.username
         })

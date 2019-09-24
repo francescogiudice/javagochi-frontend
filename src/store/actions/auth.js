@@ -41,7 +41,7 @@ export const checkAuthTimeout = expirationTime => {
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post("http://localhost:8000/rest-auth/login/", {
+        axios.post("http://54.226.199.227:8000/rest-auth/login/", {
             username: username,
             password: password
         })
@@ -64,7 +64,7 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, email, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post("http://localhost:8000/rest-auth/registration/", {
+        axios.post("http://54.226.199.227:8000/rest-auth/registration/", {
             username: username,
             email: email,
             password1: password1,
@@ -91,7 +91,7 @@ export const authChangeProfile = (old_username, new_username, new_email, new_pas
             new_password = "";
         }
         dispatch(authStart());
-        axios.patch(`http://localhost:8000/api/users/${old_username}/change/`, {
+        axios.patch(`http://54.226.199.227:8000/api/users/${old_username}/change/`, {
             username: new_username,
             email: new_email,
             password: new_password
@@ -185,7 +185,7 @@ export const getLevel = (lvl) => {
                 "Content-Type": "application/json"
             }
         }
-        axios.get(`http://localhost:8000/api/users/expmap/${lvl}/`)
+        axios.get(`http://54.226.199.227:8000/api/users/expmap/${lvl}/`)
         .then(res => {
             const level = res.data;
             dispatch(getLevelInfoEnd(level));
@@ -212,7 +212,7 @@ export const getUser = (username) => {
                 "Content-Type": "application/json"
             }
         }
-        axios.get(`http://localhost:8000/api/users/${username}/info/`)
+        axios.get(`http://54.226.199.227:8000/api/users/${username}/info/`)
         .then(res => {
             const user = res.data;
             dispatch(getUserInfoEnd(user));
@@ -256,7 +256,7 @@ export const getUsers = (user) => {
             Authorization: `Token ${token}`
         }
 
-        axios.get(`http://localhost:8000/api/users/${user}/all`)
+        axios.get(`http://54.226.199.227:8000/api/users/${user}/all`)
         .then(res => {
             const users = res.data;
             dispatch(receiveUsers(users));
