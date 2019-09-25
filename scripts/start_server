@@ -1,0 +1,5 @@
+
+# !/bin/bash
+
+cd /var/www/javagochi-frontend-master/
+sudo npm start > /dev/null 2> /dev/null < /dev/null &
