@@ -48,7 +48,7 @@ class UserJavagochiOwnedDetail extends React.Component {
         e.preventDefault();
 
         const id_challenged = this.state.javagochi.id;
-        axios.put(`http://54.226.199.227:8000/api/javagochi/${id_challenged}/challenge/`, {
+        axios.put(`https://54.226.199.227:8000/api/javagochi/${id_challenged}/challenge/`, {
             id_challenger: this.state.challenger_javagochi_id
         })
         .then((res) => {
@@ -75,9 +75,9 @@ class UserJavagochiOwnedDetail extends React.Component {
         }
 
         axios.all([
-            axios.get(`http://54.226.199.227:8000/api/javagochi/owned/${id}/`),
-            axios.get(`http://54.226.199.227:8000/api/users/${user}/items/`),
-            axios.get(`http://54.226.199.227:8000/api/users/${user}/javagochis/`)
+            axios.get(`https://54.226.199.227:8000/api/javagochi/owned/${id}/`),
+            axios.get(`https://54.226.199.227:8000/api/users/${user}/items/`),
+            axios.get(`https://54.226.199.227:8000/api/users/${user}/javagochis/`)
 
         ])
         .then(axios.spread((jcRes, itemRes, ownedjcRes) => {
@@ -88,7 +88,7 @@ class UserJavagochiOwnedDetail extends React.Component {
             });
 
             const lvl = this.state.javagochi.current_level;
-            axios.get(`http://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
+            axios.get(`https://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
             .then(res => {
                 this.setState({
                     next_level: res.data
@@ -100,14 +100,14 @@ class UserJavagochiOwnedDetail extends React.Component {
     reloadJavagochi() {
         const id = this.props.match.params.id;
 
-        axios.get(`http://54.226.199.227:8000/api/javagochi/owned/${id}/`)
+        axios.get(`https://54.226.199.227:8000/api/javagochi/owned/${id}/`)
         .then(res => {
             this.setState({
                 javagochi: res.data
             });
 
             const lvl = this.state.javagochi.current_level;
-            axios.get(`http://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
+            axios.get(`https://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
             .then(res => {
                 this.setState({
                     next_level: res.data

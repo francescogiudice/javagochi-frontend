@@ -70,7 +70,7 @@ export const itemBuyFail = (err) => {
 export const getItems = () => {
     return dispatch => {
         dispatch(requestItems());
-        axios.get('http://54.226.199.227:8000/api/items/market')
+        axios.get('https://54.226.199.227:8000/api/items/market')
         .then(res => {
             const items = res.data;
             dispatch(receiveItems(items));
@@ -84,7 +84,7 @@ export const getItems = () => {
 export const getItemDetail = (name) => {
     return dispatch => {
         dispatch(requestItemDetail());
-        axios.get(`http://54.226.199.227:8000/api/items/${name}`)
+        axios.get(`https://54.226.199.227:8000/api/items/${name}`)
         .then((res) => {
             const item = res.data;
             dispatch(receiveItemDetail(item));
@@ -104,7 +104,7 @@ export const buyItem = (user, item, amount) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.post("http://54.226.199.227:8000/api/items/buy/", {
+        axios.post("https://54.226.199.227:8000/api/items/buy/", {
             user: user,
             item: item,
             amount: amount,
