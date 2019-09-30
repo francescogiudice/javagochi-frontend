@@ -57,7 +57,7 @@ export const getUserItems = (user) => {
             Authorization: `Token ${token}`
         }
 
-        axios.get(`https://54.226.199.227:8000/api/users/${user}/items/`)
+        axios.get(`http://54.226.199.227:8000/api/users/${user}/items/`)
         .then(res => {
             const items = res.data;
             dispatch(receiveUserItems(items));
@@ -77,7 +77,7 @@ export const getUserItemDetail = (id) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.get(`https://54.226.199.227:8000/api/items/owned/${id}/`)
+        axios.get(`http://54.226.199.227:8000/api/items/owned/${id}/`)
         .then((res) => {
             const item = res.data;
             dispatch(receiveUserItemDetail(item));
