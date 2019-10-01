@@ -2,3 +2,4 @@
 
 cd /var/www/javagochi-frontend-master/
 sudo npm install
+sudo npm update
