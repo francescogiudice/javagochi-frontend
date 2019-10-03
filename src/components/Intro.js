@@ -40,13 +40,13 @@ const Intro = () => {
                 </div>
 
                 <div className="contained right">
-                    <img alt="example" src={"http://" + Path + ":8000/media/intro/cutie_patutie.png"} />
+                    <img alt="example" src={"http://" + Path + "/intro/cutie_patutie.png"} />
                 </div>
             </div>
 
             <div className="bulk blue">
                 <div className="contained left white-txt">
-                    <img alt="example" src={"http://" + Path + ":8000/media/intro/cool.png"} />
+                    <img alt="example" src={"http://" + Path + "/intro/cool.png"} />
                 </div>
 
                 <div className="contained right white-txt">
