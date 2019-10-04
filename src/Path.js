@@ -1,5 +1,5 @@
-import React from 'react';
 
-const Path = "54.226.199.227";
+# put backend ip address here
+const Path = "";
 
 export default Path;
