@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import path from '../../path.js'
 
 export const requestAllTrades = () => {
     return {
@@ -63,7 +64,7 @@ export const getAllTrades = (user) => {
             }
         }
 
-        axios.get(`http://54.226.199.227:8000/api/trades/${user}/all/`)
+        axios.get(`http://${path}:8000/api/trades/${user}/all/`)
         .then(res => {
             const trades = res.data;
             dispatch(receiveAllTrades(trades));
@@ -92,7 +93,7 @@ export const getAllUserTrades = (user) => {
             }
         }
 
-        axios.get(`http://54.226.199.227:8000/api/users/${user}/trades/`)
+        axios.get(`http://${path}:8000/api/users/${user}/trades/`)
         .then(res => {
             const trades = res.data;
             dispatch(receiveUserTrades(trades));
@@ -141,7 +142,7 @@ export const addTrade = (offeredId, interestedInto) => {
             }
         }
 
-        axios.post("http://54.226.199.227:8000/api/trades/add/", {
+        axios.post("http://${path}:8000/api/trades/add/", {
           offered_id: offeredId,
           interested_into: interestedInto,
         })

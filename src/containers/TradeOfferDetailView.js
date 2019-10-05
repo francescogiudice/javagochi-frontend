@@ -4,8 +4,9 @@ import { Typography, Spin, Button, Form, Select } from 'antd';
 import { withRouter } from 'react-router-dom';
 
 import TradeDetail from '../components/TradeDetail';
-const { Title } = Typography;
+import path from '../../path.js'
 
+const { Title } = Typography;
 const Option = Select.Option;
 
 class TradeOfferDetail extends React.Component {
@@ -27,7 +28,7 @@ class TradeOfferDetail extends React.Component {
         e.preventDefault();
 
         const id = this.state.trade.id;
-        axios.put(`http://54.226.199.227:8000/api/trades/${id}/conclude/`, {
+        axios.put(`http://${path}:8000/api/trades/${id}/conclude/`, {
             id_trader: this.state.selected_jc_trade
         })
         .then((res) => {
@@ -40,7 +41,7 @@ class TradeOfferDetail extends React.Component {
 
     removeTrade = () => {
         const id = this.state.trade.id;
-        axios.delete(`http://54.226.199.227:8000/api/trades/${id}/close`)
+        axios.delete(`http://${path}:8000/api/trades/${id}/close`)
         .then((res) => {
             this.props.history.push('/mytrades');
         })
@@ -61,8 +62,8 @@ class TradeOfferDetail extends React.Component {
         }
 
         axios.all([
-            axios.get(`http://54.226.199.227:8000/api/trades/${id}`),
-            axios.get(`http://54.226.199.227:8000/api/users/${user}/javagochis/`)
+            axios.get(`http://${path}:8000/api/trades/${id}`),
+            axios.get(`http://${path}:8000/api/users/${user}/javagochis/`)
         ])
         .then(axios.spread((resTrade, resJc) => {
             const tradeable_jcs = resJc.data.filter(function (jc) { return jc.race.race === resTrade.data.interested_into.race; });
@@ -72,7 +73,7 @@ class TradeOfferDetail extends React.Component {
             });
 
             const lvl = this.state.trade.offering.current_level;
-            axios.get(`http://54.226.199.227:8000/api/javagochi/expmap/${lvl}/`)
+            axios.get(`http://${path}:8000/api/javagochi/expmap/${lvl}/`)
             .then(res => {
                 this.setState({
                     next_level: res.data

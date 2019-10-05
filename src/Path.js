@@ -1,5 +1,5 @@
 
-# put backend ip address here
-const Path = "";
+// put backend ip address here
+const path = "localhost";
 
-export default Path;
+export default path;
