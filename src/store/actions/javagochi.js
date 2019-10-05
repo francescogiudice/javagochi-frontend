@@ -71,7 +71,7 @@ export const jcBuyFail = (err) => {
 export const getJcRaces = () => {
     return dispatch => {
         dispatch(requestJcRaces());
-        axios.get('http://${path}:8000/api/javagochi/market/')
+        axios.get(`http://${path}:8000/api/javagochi/market/`)
         .then(res => {
             const javagochis = res.data;
             dispatch(receiveJcRaces(javagochis));
