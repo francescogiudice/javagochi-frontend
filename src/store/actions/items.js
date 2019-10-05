@@ -71,7 +71,7 @@ export const itemBuyFail = (err) => {
 export const getItems = () => {
     return dispatch => {
         dispatch(requestItems());
-        axios.get('http://${path}:8000/api/items/market')
+        axios.get(`http://${path}:8000/api/items/market`)
         .then(res => {
             const items = res.data;
             dispatch(receiveItems(items));
