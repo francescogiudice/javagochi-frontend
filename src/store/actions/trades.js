@@ -142,7 +142,7 @@ export const addTrade = (offeredId, interestedInto) => {
             }
         }
 
-        axios.post("http://${path}:8000/api/trades/add/", {
+        axios.post(`http://${path}:8000/api/trades/add/`, {
           offered_id: offeredId,
           interested_into: interestedInto,
         })

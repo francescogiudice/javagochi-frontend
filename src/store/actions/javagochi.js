@@ -105,7 +105,7 @@ export const buyJavagochi = (race, user, nickname) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.post("http://${path}:8000/api/javagochi/buy/", {
+        axios.post(`http://${path}:8000/api/javagochi/buy/`, {
           user: user,
           race: race,
           nickname: nickname

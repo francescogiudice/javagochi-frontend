@@ -105,7 +105,7 @@ export const buyItem = (user, item, amount) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.post("http://${path}:8000/api/items/buy/", {
+        axios.post(`http://${path}:8000/api/items/buy/`, {
             user: user,
             item: item,
             amount: amount,
