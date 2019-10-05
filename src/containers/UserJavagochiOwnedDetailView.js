@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import JavagochiOwned from '../components/JavagochiOwned';
 import Loading from '../components/Loading';
 import ModalPopup from '../components/ModalPopup';
-import path from '../../path.js'
+import path from '../path'
 import '../styles/JcOwnedDetail.css';
 
 const { Title } = Typography;

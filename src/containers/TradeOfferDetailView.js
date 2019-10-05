@@ -4,7 +4,7 @@ import { Typography, Spin, Button, Form, Select } from 'antd';
 import { withRouter } from 'react-router-dom';
 
 import TradeDetail from '../components/TradeDetail';
-import path from '../../path.js'
+import path from '../path'
 
 const { Title } = Typography;
 const Option = Select.Option;
