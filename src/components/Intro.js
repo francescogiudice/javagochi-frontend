@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel, Typography, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-import path from './path.js';
+import path from '../path';
 
 const { Title } = Typography;
 
