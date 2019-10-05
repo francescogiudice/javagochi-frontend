@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import { getUserItems } from './ownedItems';
-import path from '../../path.js'
+import path from './path.js'
 
 export const requestOwnedJcs = () => {
     return {

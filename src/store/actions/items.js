@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
-import path from '../../path.js'
+import path from './path.js'
 
 export const requestItems = () => {
     return {
