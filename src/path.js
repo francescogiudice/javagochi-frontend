@@ -1,5 +1,5 @@
 
 // put backend ip address here
-const path = "100.26.44.96";
+const path = "3.80.44.97";
 
 export default path;
