@@ -16,7 +16,7 @@ class CustomLayout extends React.Component {
     }
 
     render() {
-
+        console.log(window.innerWidth)
         return (
             <Layout>
 
@@ -32,7 +32,27 @@ class CustomLayout extends React.Component {
                                 <Link to="/">Home</Link>
                             </Menu.Item>
 
-                            <Menu.Item key="2" onClick={this.props.logout}><Link to="/">Logout</Link></Menu.Item>
+                            <Menu.Item key="2" onClick={this.props.logout}>
+                                <Link to="/">Logout</Link>
+                            </Menu.Item>
+
+                            <SubMenu key="sub1" title={<span><Icon type="user" />User</span>}>
+                                <Menu.Item key="10"><Link to="/myprofile/">Your Profile</Link></Menu.Item>
+                                <Menu.Item key="20"><Link to="/myprofile/myjavagochis">Your Javagochis</Link></Menu.Item>
+                                <Menu.Item key="30"><Link to="/myprofile/myitems">Your Items</Link></Menu.Item>
+                                <Menu.Item key="40"><Link to="/myprofile/mytrades">Your Trades</Link></Menu.Item>
+                            </SubMenu>
+
+                            <SubMenu key="sub2" title={<span><Icon type="laptop" />Market</span>}>
+                                <Menu.Item key="12"><Link to="/market">Javagochis</Link></Menu.Item>
+                                <Menu.Item key="22"><Link to="/itemsmarket">Items</Link></Menu.Item>
+                            </SubMenu>
+
+                            <SubMenu key="sub3" title={<span><Icon type="user" />Social</span>}>
+                                <Menu.Item key="8"><Link to="/users">Find new friends</Link></Menu.Item>
+                                <Menu.Item key="9"><Link to="/trades">Trades</Link></Menu.Item>
+                            </SubMenu>
+
                         </Menu>
                     :
                         <Menu
@@ -48,50 +68,19 @@ class CustomLayout extends React.Component {
                             <Menu.Item key="2">
                                 <Link to="/login">Login</Link>
                             </Menu.Item>
-                        </Menu>
-                }
 
-                <Layout>
-                    <Sider style={{ background: '#fff', width: '10%' }}>
-
-                        <Menu
-                            mode="inline"
-                            defaultOpenKeys={['sub1']}
-                            style={{ height: '100%', borderRight: 0 }}
-                        >
-                            {
-                                this.props.isAuthenticated ?
-                                  <SubMenu key="sub1" title={<span><Icon type="user" />{localStorage.getItem('username')}</span>}>
-                                      <Menu.Item key="10"><Link to="/myprofile/">Your Profile</Link></Menu.Item>
-                                      <Menu.Item key="20"><Link to="/myprofile/myjavagochis">Your Javagochis</Link></Menu.Item>
-                                      <Menu.Item key="30"><Link to="/myprofile/myitems">Your Items</Link></Menu.Item>
-                                      <Menu.Item key="40"><Link to="/myprofile/mytrades">Your Trades</Link></Menu.Item>
-                                  </SubMenu>
-                                :
-                                  <SubMenu key="sub1" title={<span><Icon type="user" />Start now!</span>}>
-                                      <Menu.Item key="11"><Link to="/login">Login</Link></Menu.Item>
-                                      <Menu.Item key="21"><Link to="/signup">Signup</Link></Menu.Item>
-                                  </SubMenu>
-                            }
+                            <Menu.Item key="3">
+                                <Link to="/signup">Signup</Link>
+                            </Menu.Item>
 
                             <SubMenu key="sub2" title={<span><Icon type="laptop" />Market</span>}>
                                 <Menu.Item key="12"><Link to="/market">Javagochis</Link></Menu.Item>
                                 <Menu.Item key="22"><Link to="/itemsmarket">Items</Link></Menu.Item>
                             </SubMenu>
-
-                            {
-                                this.props.isAuthenticated ?
-
-                                  <SubMenu key="sub3" title={<span><Icon type="user" />Social</span>}>
-                                      <Menu.Item key="8"><Link to="/users">Find new friends</Link></Menu.Item>
-                                      <Menu.Item key="9"><Link to="/trades">Trades</Link></Menu.Item>
-                                  </SubMenu>
-                                :
-                                  <Menu.Item></Menu.Item>
-                            }
-
                         </Menu>
-                    </Sider>
+                }
+
+                <Layout>
 
                     <Content style={{
                         background: '#fff', padding: 24, margin: 0, minHeight: 280,
