@@ -12,7 +12,7 @@ class NormalLoginForm extends React.Component {
         this.props.onAuth(values.userName, values.password);
       }
     });
-    this.props.history.push('/');
+    this.props.history.push('/myprofile');
   }
 
   render() {

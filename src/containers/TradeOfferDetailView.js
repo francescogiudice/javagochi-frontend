@@ -32,7 +32,7 @@ class TradeOfferDetail extends React.Component {
             id_trader: this.state.selected_jc_trade
         })
         .then((res) => {
-            this.props.history.push('/myjavagochis');
+            this.props.history.push('/myprofile/myjavagochis');
         })
         .catch((err) => {
             console.log(err);
@@ -43,7 +43,7 @@ class TradeOfferDetail extends React.Component {
         const id = this.state.trade.id;
         axios.delete(`http://${path}:8000/api/trades/${id}/close`)
         .then((res) => {
-            this.props.history.push('/mytrades');
+            this.props.history.push('/myprofile/mytrades');
         })
         .catch((err) => {
             console.log(err);

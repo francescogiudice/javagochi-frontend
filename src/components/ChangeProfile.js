@@ -21,7 +21,7 @@ class ChangeProfileForm extends React.Component {
                   values.password
                 );
             }
-            this.props.history.push('/');
+            this.props.history.push('/myprofile');
         });
     }
 

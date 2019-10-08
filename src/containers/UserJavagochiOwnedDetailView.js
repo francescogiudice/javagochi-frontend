@@ -35,7 +35,7 @@ class UserJavagochiOwnedDetail extends React.Component {
             popupVisible: false,
             is_traded: true
         });
-        this.props.history.push('/myjavagochis');
+        this.props.history.push('/myprofile/myjavagochis');
     }
 
     handleSelect = (val) => {

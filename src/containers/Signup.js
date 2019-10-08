@@ -20,7 +20,7 @@ class RegistrationForm extends React.Component {
             values.confirm
         );
       }
-      this.props.history.push('/');
+      this.props.history.push('/myprofile');
     });
   }
 

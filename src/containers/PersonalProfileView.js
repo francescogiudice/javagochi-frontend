@@ -25,7 +25,7 @@ class PersonalProfile extends React.Component {
     }
 
     onClick = (item) => {
-        this.props.history.push('/myitems/' + item.id)
+        this.props.history.push('/myprofile/myitems/' + item.id)
     }
 
     render() {
