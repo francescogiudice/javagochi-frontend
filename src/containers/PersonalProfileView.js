@@ -24,6 +24,13 @@ class PersonalProfile extends React.Component {
         this.props.dispatch(getUserItems(user));
     }
 
+    componentDidUpdate() {
+        const user = localStorage.getItem('username');
+        this.props.dispatch(getUser(user));
+        this.props.dispatch(getOwnedJcs(user));
+        this.props.dispatch(getUserItems(user));
+    }
+
     onClick = (item) => {
         this.props.history.push('/myprofile/myitems/' + item.id)
     }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
 
 const {
-  Content, Sider
+  Content, //Sider
 } = Layout;
 const { SubMenu } = Menu;
 

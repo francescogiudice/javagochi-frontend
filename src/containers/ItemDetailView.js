@@ -1,15 +1,36 @@
 import React from 'react';
 import { getItemDetail } from '../store/actions/items';
 import { buyItem } from '../store/actions/items';
-import { Button, Form, InputNumber  } from 'antd';
+import { Typography, Modal, Button, Form, InputNumber  } from 'antd';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ItemDetail from '../components/ItemDetail';
+const { Text } = Typography;
 
 class ItDetail extends React.Component {
 
     state = {
+        popupVisible: false,
         buying: 1
+    }
+
+    showModal = (e) => {
+        this.setState({
+            popupVisible: true
+        });
+    }
+
+    handleOk = (e) => {
+        this.setState({
+            popupVisible: false
+        });
+        this.props.history.push('/myprofile/myitems');
+    }
+
+    handleCancel = (e) => {
+        this.setState({
+            popupVisible: false
+        });
     }
 
     handleBuy = (e) => {
@@ -19,6 +40,7 @@ class ItDetail extends React.Component {
         const item = e.target[1].value;
         const amount = e.target[2].value;
         this.props.dispatch(buyItem(user, item, amount));
+        this.showModal();
     }
 
     increaseAmount = (value) => {
@@ -38,6 +60,14 @@ class ItDetail extends React.Component {
         if(localStorage.getItem('username') !== undefined && localStorage.getItem('username') !== null) {
             return (
                 <div>
+                    <Modal
+                      title="The page says:"
+                      visible={this.state.popupVisible}
+                      onOk={this.handleOk}
+                      onCancel={this.handleCancel}
+                    >
+                        <Text>CAMBIARE SUL BACKEND Item purchased succesfully</Text>
+                    </Modal>
                     <ItemDetail item={item} />
 
                     <Form onSubmit={this.handleBuy}>
