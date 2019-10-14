@@ -18,7 +18,10 @@ const JavagochiCard = (props) => {
             >
               <Meta
                 title={javagochi.race}
-                description={"Cost: " + javagochi.cost}
+                description={
+                  "Cost: " + javagochi.cost + " " +
+                  "Min. User Level: " + javagochi.min_user_level
+                }
               />
             </Card>
         );
@@ -34,7 +37,10 @@ const JavagochiCard = (props) => {
             >
               <Meta
                 title={javagochi.race}
-                description={"Cost: " + javagochi.cost}
+                description={
+                  "Cost: " + javagochi.cost + " " +
+                  "Min. User Level: " + javagochi.min_user_level
+              }
               />
             </Card>
         )

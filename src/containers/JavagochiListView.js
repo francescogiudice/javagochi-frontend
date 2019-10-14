@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { getJcRaces } from "../store/actions/javagochi";
+import { getUser } from "../store/actions/auth";
 
 import { Typography, Input } from 'antd';
 import JavagochiCells from '../components/JavagochiCells';
@@ -25,7 +26,8 @@ class JavagochiList extends React.Component {
 
     onInputChange(e) {
         const allJavagochis = this.props.javagochis;
-        let newlyDisplayed = allJavagochis.filter(javagochi => javagochi.race.includes(e.target.value));
+        const userLevel = this.props.user.level;
+        let newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.race.includes(e.target.value) && (javagochi.min_user_level <= userLevel)));
         this.setState({
             searchTerm: e.target.value,
             currentlyDisplayed: newlyDisplayed
@@ -33,19 +35,27 @@ class JavagochiList extends React.Component {
     }
 
     componentDidMount() {
+        const user = localStorage.getItem('username');
         this.props.dispatch(getJcRaces());
+        this.props.dispatch(getUser(user));
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState({
-            searchTerm: '',
-            currentlyDisplayed: newProps.javagochis
-        });
+        const userLevel = newProps.user.level;
+        const allJavagochis = newProps.javagochis;
+        let newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.min_user_level <= userLevel));
+        if(userLevel != null) {
+          this.setState({
+              searchTerm: '',
+              currentlyDisplayed: newlyDisplayed
+          });
+        }
     }
 
     render() {
         // const javagochis = this.props.javagochis;
         const loading = this.props.loading;
+        const user = this.props.user;
 
         if(!loading) {
             return (
@@ -56,7 +66,7 @@ class JavagochiList extends React.Component {
                       className="test-class"
                       style={{ marginBottom: 15, width: 300 }}
                     />
-                    <Title>All Javagochis</Title>
+                    <Title>All Javagochis {user.level}</Title>
                     <JavagochiCells data={this.state.currentlyDisplayed} />
                 </div>
             );
@@ -71,6 +81,7 @@ class JavagochiList extends React.Component {
 
 function mapStateToProps(state) {
     return {
+        user: state.userReducer.user,
         javagochis: state.jcReducer.jcRaces,
         loading: state.jcReducer.fetchingRaces,
         error: state.jcReducer.jcError
