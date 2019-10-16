@@ -27,7 +27,14 @@ class JavagochiList extends React.Component {
     onInputChange(e) {
         const allJavagochis = this.props.javagochis;
         const userLevel = this.props.user.level;
-        let newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.race.includes(e.target.value) && (javagochi.min_user_level <= userLevel)));
+        var newlyDisplayed = '';
+
+        if(userLevel) {
+          newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.race.includes(e.target.value) && (javagochi.min_user_level <= userLevel)));
+        } else {
+          newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.race.includes(e.target.value)));
+        }
+
         this.setState({
             searchTerm: e.target.value,
             currentlyDisplayed: newlyDisplayed
@@ -43,13 +50,19 @@ class JavagochiList extends React.Component {
     componentWillReceiveProps(newProps) {
         const userLevel = newProps.user.level;
         const allJavagochis = newProps.javagochis;
-        let newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.min_user_level <= userLevel));
-        if(userLevel != null) {
-          this.setState({
-              searchTerm: '',
-              currentlyDisplayed: newlyDisplayed
-          });
+        var newlyDisplayed = '';
+
+        if(userLevel) {
+          newlyDisplayed = allJavagochis.filter(javagochi => (javagochi.min_user_level <= userLevel));
+        } else {
+          newlyDisplayed = allJavagochis;
         }
+
+        this.setState({
+            searchTerm: '',
+            currentlyDisplayed: newlyDisplayed
+        });
+
     }
 
     render() {
@@ -66,7 +79,7 @@ class JavagochiList extends React.Component {
                       className="test-class"
                       style={{ marginBottom: 15, width: 300 }}
                     />
-                    <Title>All Javagochis {user.level}</Title>
+                    <Title>All Javagochis</Title>
                     <JavagochiCells data={this.state.currentlyDisplayed} />
                 </div>
             );
