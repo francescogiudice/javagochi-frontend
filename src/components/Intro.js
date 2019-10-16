@@ -35,7 +35,7 @@ const Intro = () => {
 
             <div className="bulk white">
                 <div className="contained left">
-                    <Title>What is a javagochi?</Title>
+                    <Title>What is a javagochi? FRA</Title>
                     <Title level={4}>Cute, little monsters that you can take care of!</Title>
                 </div>
 
