@@ -27,15 +27,22 @@ const Intro = () => {
                     <Title level={3}>Collect them,
                     feed them,
                     love them</Title>
-
-                    <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Start your adventure!</Link></Button>
-                    <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                    {
+                      (localStorage.getItem('username'))
+                      ?
+                      <div></div>
+                      :
+                      <div>
+                        <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Start your adventure!</Link></Button>
+                        <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                      </div>
+                    }
                 </div>
             </div>
 
             <div className="bulk white">
                 <div className="contained left">
-                    <Title>What is a javagochi? FRA</Title>
+                    <Title>What is a javagochi?</Title>
                     <Title level={4}>Cute, little monsters that you can take care of!</Title>
                 </div>
 
@@ -59,8 +66,16 @@ const Intro = () => {
                 <Title>What are you waiting for?</Title>
                 <Title level={2}>Start your adventure right now!</Title>
 
-                <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Signup</Link></Button>
-                <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                {
+                  (localStorage.getItem('username'))
+                  ?
+                  <div></div>
+                  :
+                  <div>
+                    <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Signup</Link></Button>
+                    <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                  </div>
+                }
             </div>
         </div>
     );
