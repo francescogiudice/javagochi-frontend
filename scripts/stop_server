@@ -4,3 +4,6 @@ ps -ef | grep npm | grep -v grep | awk '{print $2}' | sudo xargs kill
 ps -ef | grep node | grep -v grep | awk '{print $2}' | sudo xargs kill
 ps -ef | grep react-scripts | grep -v grep | awk '{print $2}' | sudo xargs kill
 sudo rm -rf /var/www/javagochi-frontend-master/src/
+sudo rm -rf /var/www/javagochi-server-master/public
+sudo rm -rf /var/www/javagochi-server-master/tests
+sudo rm -rf /var/www/javagochi-server-master/scripts
