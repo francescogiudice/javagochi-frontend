@@ -7,9 +7,9 @@ sudo rm -rf /var/www/javagochi-frontend-master/src
 sudo rm -rf /var/www/javagochi-server-master/public
 sudo rm -rf /var/www/javagochi-server-master/tests
 sudo rm -rf /var/www/javagochi-server-master/scripts
-sudo rm /var/www/javagochi-frontend.config.js
-sudo rm /var/www/package.json
-sudo rm /var/www/package-lock.json
-sudo rm /var/www/.gitignore
-sudo rm /var/www/appspec.yml
-sudo rm /var/www/README.md
+sudo rm /var/www/javagochi-frontend-master/javagochi-frontend.config.js
+sudo rm /var/www/javagochi-frontend-master/package.json
+sudo rm /var/www/javagochi-frontend-master/package-lock.json
+sudo rm /var/www/javagochi-frontend-master/.gitignore
+sudo rm /var/www/javagochi-frontend-master/appspec.yml
+sudo rm /var/www/javagochi-frontend-master/README.md
