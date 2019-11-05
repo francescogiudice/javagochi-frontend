@@ -1,37 +1,31 @@
-import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import RegistrationForm from '../src/containers/Signup';
-import sinon from 'sinon';
-import Adapter from 'enzyme-adapter-react-16'
-import { act } from 'react-dom/test-utils';
+import React from 'react'
+import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer'
 
+import authSuccess from '../src/store/reducers/auth'
+import * as actions from '../src/store/actions/auth'
 
-Enzyme.configure({adapter: new Adapter()})
+describe('>>>A C T I O N --- Test authSuccess',()=>{
+    it('+++ authSuccess', () => {
+        const add = actions.authSuccess('token')
+        expect(add).toEqual({type:"AUTH_SUCCESS",token:'token'})
+    });
+});
 
-function shallowSetup() {
+describe('>>>R E D U C E R --- Test calculatorReducers',()=>{
+    it('+++ reducer for ADD_INPUT', () => {
 
-  //Sample props to pass to our shallow render
-  const props = {
-    loading: false,
-    error: undefined,
-    authSignup: jest.fn()
-  }
+        let state = {
+            token: null,
+            error: 'error',
+            loading: true
+        }
 
-  // wrapper instance around rendered output
-  const enzymeWrapper = shallow(<RegistrationForm />);
-
-  return {
-    props,
-    enzymeWrapper
-  };
-}
-
-describe('Shallow rendered', () => {
-  it('should render a card with the details', () => {
-    // Setup wrapper and assign props.
-    const { enzymeWrapper, props } = shallowSetup();
-
-    // enzymeWrapper.find(selector) : Find every node in the render tree that matches the provided selector.
-    expect(enzymeWrapper.find('password'));
-  });
+        state = authSuccess(state, {type:'AUTH_SUCCESS', token: 'token'})
+        expect(state).toEqual({
+            token: 'token',
+            error: null,
+            loading: false
+        })
+    });
 });
