@@ -64,7 +64,7 @@ export const getAllTrades = (user) => {
             }
         }
 
-        axios.get(`http://${path}:8000/api/trades/${user}/all/`)
+        axios.get(`${path}/api/trades/${user}/all/`)
         .then(res => {
             const trades = res.data;
             dispatch(receiveAllTrades(trades));
@@ -93,7 +93,7 @@ export const getAllUserTrades = (user) => {
             }
         }
 
-        axios.get(`http://${path}:8000/api/users/${user}/trades/`)
+        axios.get(`${path}/api/users/${user}/trades/`)
         .then(res => {
             const trades = res.data;
             dispatch(receiveUserTrades(trades));
@@ -142,7 +142,7 @@ export const addTrade = (offeredId, interestedInto) => {
             }
         }
 
-        axios.post(`http://${path}:8000/api/trades/add/`, {
+        axios.post(`${path}/api/trades/add/`, {
           offered_id: offeredId,
           interested_into: interestedInto,
         })

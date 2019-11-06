@@ -71,7 +71,7 @@ export const itemBuyFail = (err) => {
 export const getItems = () => {
     return dispatch => {
         dispatch(requestItems());
-        axios.get(`http://${path}:8000/api/items/market`)
+        axios.get(`${path}/api/items/market`)
         .then(res => {
             const items = res.data;
             dispatch(receiveItems(items));
@@ -85,7 +85,7 @@ export const getItems = () => {
 export const getItemDetail = (name) => {
     return dispatch => {
         dispatch(requestItemDetail());
-        axios.get(`http://${path}:8000/api/items/${name}`)
+        axios.get(`${path}/api/items/${name}`)
         .then((res) => {
             const item = res.data;
             dispatch(receiveItemDetail(item));
@@ -105,7 +105,7 @@ export const buyItem = (user, item, amount) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.post(`http://${path}:8000/api/items/buy/`, {
+        axios.post(`${path}/api/items/buy/`, {
             user: user,
             item: item,
             amount: amount,

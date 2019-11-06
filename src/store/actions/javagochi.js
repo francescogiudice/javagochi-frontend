@@ -71,7 +71,7 @@ export const jcBuyFail = (err) => {
 export const getJcRaces = () => {
     return dispatch => {
         dispatch(requestJcRaces());
-        axios.get(`http://${path}:8000/api/javagochi/market/`)
+        axios.get(`${path}/api/javagochi/market/`)
         .then(res => {
             const javagochis = res.data;
             dispatch(receiveJcRaces(javagochis));
@@ -85,7 +85,7 @@ export const getJcRaces = () => {
 export const getJcRace = (race) => {
     return dispatch => {
         dispatch(requestJcRace());
-        axios.get(`http://${path}:8000/api/javagochi/${race}`)
+        axios.get(`${path}/api/javagochi/${race}`)
         .then((res) => {
             const javagochi = res.data;
             dispatch(receiveJcRace(javagochi));
@@ -105,7 +105,7 @@ export const buyJavagochi = (race, user, nickname) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.post(`http://${path}:8000/api/javagochi/buy/`, {
+        axios.post(`${path}/api/javagochi/buy/`, {
           user: user,
           race: race,
           nickname: nickname

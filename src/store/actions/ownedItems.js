@@ -58,7 +58,7 @@ export const getUserItems = (user) => {
             Authorization: `Token ${token}`
         }
 
-        axios.get(`http://${path}:8000/api/users/${user}/items/`)
+        axios.get(`${path}/api/users/${user}/items/`)
         .then(res => {
             const items = res.data;
             dispatch(receiveUserItems(items));
@@ -78,7 +78,7 @@ export const getUserItemDetail = (id) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`
         }
-        axios.get(`http://${path}:8000/api/items/owned/${id}/`)
+        axios.get(`${path}/api/items/owned/${id}/`)
         .then((res) => {
             const item = res.data;
             dispatch(receiveUserItemDetail(item));
