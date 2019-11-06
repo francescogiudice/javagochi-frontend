@@ -2,24 +2,24 @@ import React from 'react';
 import { Carousel, Typography, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-import path from '../path';
-
 const { Title } = Typography;
+
+const img_path = "http://javaimagesbalancer-257274074.us-east-1.elb.amazonaws.com";
 
 const Intro = () => {
 
     return (
         <div>
             <Carousel autoplay>
-                <div><img alt="first_carusel_image" src={path + "/intro/first_carusel_image.jpg"} /></div>
-                <div><img alt="second_carusel_image" src={path + "/intro/second_carusel_image.jpg"} /></div>
-                <div><img alt="second_carusel_image" src={path + "/intro/third_carusel_image.jpg"} /></div>
-                <div><img alt="second_carusel_image" src={path + "/intro/fourth_carusel_image.jpg"} /></div>
+                <div><img alt="first_carusel_image" src={img_path + "/intro/first_carusel_image.jpg"} /></div>
+                <div><img alt="second_carusel_image" src={img_path + "/intro/second_carusel_image.jpg"} /></div>
+                <div><img alt="second_carusel_image" src={img_path + "/intro/third_carusel_image.jpg"} /></div>
+                <div><img alt="second_carusel_image" src={img_path + "/intro/fourth_carusel_image.jpg"} /></div>
             </Carousel>
 
             <div className="bulk blue">
                 <div className="contained left white-txt">
-                    <img alt="example" src={path + "/intro/leafagochi.png"} />
+                    <img alt="example" src={img_path + "/intro/leafagochi.png"} />
                 </div>
 
                 <div className="contained right white-txt">
@@ -47,13 +47,13 @@ const Intro = () => {
                 </div>
 
                 <div className="contained right">
-                    <img alt="example" src={path + "/intro/cutie_patutie.png"} />
+                    <img alt="example" src={img_path + "/intro/cutie_patutie.png"} />
                 </div>
             </div>
 
             <div className="bulk blue">
                 <div className="contained left white-txt">
-                    <img alt="example" src={path + "/intro/cool.png"} />
+                    <img alt="example" src={img_path + "/intro/cool.png"} />
                 </div>
 
                 <div className="contained right white-txt">
