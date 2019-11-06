@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
-const img_path = "http://javaimagesbalancer-257274074.us-east-1.elb.amazonaws.com";
+const img_path = "http://JavaImagesBalancer-257274074.us-east-1.elb.amazonaws.com";
 
 const Intro = () => {
 
