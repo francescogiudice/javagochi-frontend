@@ -66,7 +66,7 @@ class ItDetail extends React.Component {
                       onOk={this.handleOk}
                       onCancel={this.handleCancel}
                     >
-                        <Text>CAMBIARE SUL BACKEND Item purchased succesfully</Text>
+                        <Text>Item purchased succesfully</Text>
                     </Modal>
                     <ItemDetail item={item} />
 
