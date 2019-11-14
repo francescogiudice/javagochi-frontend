@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel, Typography, Button } from 'antd';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -33,8 +33,10 @@ const Intro = () => {
                       <div></div>
                       :
                       <div>
-                        <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Start your adventure!</Link></Button>
-                        <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                        <Router>
+                          <Button type="primary" style={{marginRight: 20}}><Link id="link" to="/signup">Start your adventure!</Link></Button>
+                          <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                        </Router>
                       </div>
                     }
                 </div>
@@ -72,8 +74,10 @@ const Intro = () => {
                   <div></div>
                   :
                   <div>
-                    <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Signup</Link></Button>
-                    <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                    <Router>
+                      <Button type="primary" style={{marginRight: 20}}><Link to="/signup">Signup</Link></Button>
+                      <Button type="primary" style={{marginLeft: 20}}><Link to="/login">Login</Link></Button>
+                    </Router>
                   </div>
                 }
             </div>
