@@ -66,7 +66,7 @@ class ItDetail extends React.Component {
                       onOk={this.handleOk}
                       onCancel={this.handleCancel}
                     >
-                        <Text>Item purchased succesfully</Text>
+                        <Text>{this.props.message}</Text>
                     </Modal>
                     <ItemDetail item={item} />
 
@@ -93,7 +93,8 @@ class ItDetail extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        item: state.itemsReducer.selectedItem
+        item: state.itemsReducer.selectedItem,
+        message: state.itemsReducer.message,
     }
 }
 
