@@ -82,7 +82,7 @@ class ItDetail extends React.Component {
         else {
             return (
                 <div>
-                    <ItemDetail item={this.state.item} />
+                    <ItemDetail item={item} />
 
                     <Button type="primary" style={{margin: 20}}><Link to="/login">Login to buy this item!</Link></Button>
                 </div>

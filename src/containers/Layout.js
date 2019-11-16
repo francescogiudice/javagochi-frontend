@@ -73,6 +73,11 @@ class CustomLayout extends React.Component {
                                 <Link to="/signup">Signup</Link>
                             </Menu.Item>
 
+                            <SubMenu key="sub2" title={<span><Icon type="laptop" />Market</span>}>
+                                <Menu.Item key="12"><Link to="/market">Javagochis</Link></Menu.Item>
+                                <Menu.Item key="22"><Link to="/itemsmarket">Items</Link></Menu.Item>
+                            </SubMenu>
+
                         </Menu>
                 }
 
@@ -89,11 +94,6 @@ class CustomLayout extends React.Component {
         );
     }
 }
-
-// <SubMenu key="sub2" title={<span><Icon type="laptop" />Market</span>}>
-//     <Menu.Item key="12"><Link to="/market">Javagochis</Link></Menu.Item>
-//     <Menu.Item key="22"><Link to="/itemsmarket">Items</Link></Menu.Item>
-// </SubMenu>
 
 const mapDispatchToProps = dispatch => {
     return {
