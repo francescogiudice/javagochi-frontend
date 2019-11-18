@@ -16,7 +16,6 @@ class CustomLayout extends React.Component {
     }
 
     render() {
-        console.log(window.innerWidth)
         return (
             <Layout>
 

@@ -66,11 +66,7 @@ class ItDetail extends React.Component {
                       onOk={this.handleOk}
                       onCancel={this.handleCancel}
                     >
-                        <Text>{this.props.message ?
-                          this.props.message
-                          :
-                          (this.props.error ? this.props.error.message : console.log())
-                        }</Text>
+                        <Text>{ this.props.message }</Text>
                     </Modal>
                     <ItemDetail item={item} />
 
