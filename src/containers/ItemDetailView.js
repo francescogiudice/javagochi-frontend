@@ -66,7 +66,11 @@ class ItDetail extends React.Component {
                       onOk={this.handleOk}
                       onCancel={this.handleCancel}
                     >
-                        <Text>{this.props.message}</Text>
+                        <Text>{this.props.message ?
+                          this.props.message
+                          :
+                          (this.props.error ? this.props.error.message : console.log())
+                        }</Text>
                     </Modal>
                     <ItemDetail item={item} />
 
@@ -95,6 +99,7 @@ const mapStateToProps = state => {
     return {
         item: state.itemsReducer.selectedItem,
         message: state.itemsReducer.message,
+        error: state.itemsReducer.error,
     }
 }
 

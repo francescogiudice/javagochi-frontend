@@ -68,7 +68,11 @@ class JavagochiDetail extends React.Component {
                       onOk={this.handleOk}
                       onCancel={this.handleCancel}
                     >
-                      <Text>{this.props.message}</Text>
+                    <Text>{this.props.message ?
+                      this.props.message
+                      :
+                      (this.props.error ? this.props.error.message : console.log())
+                    }</Text>
                     </Modal>
 
                     <JavagochiRace javagochi={javagochi}/>
@@ -116,7 +120,8 @@ const mapStateToProps = state => {
             javagochi: state.jcReducer.selectedRace,
             user: state.userReducer.user,
             message: state.jcReducer.message,
-            showModal: state.jcReducer.performingBuy
+            showModal: state.jcReducer.performingBuy,
+            error: state.jcReducer.jcError,
         }
     }
 }
