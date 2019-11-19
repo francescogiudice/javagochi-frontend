@@ -20,15 +20,30 @@ class RegistrationForm extends React.Component {
             values.password,
             values.confirm
         );
-        this.props.history.push('/myprofile');
       }
     });
   }
+
+  componentDidUpdate() {
+    const user = localStorage.getItem('username');
+    if(user) {
+      this.props.history.push('/myprofile');
+    }
+  }
+
 
   // handleConfirmBlur = (e) => {
   //   const value = e.target.value;
   //   this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   // }
+
+  validateUserName = (rule, value, callback) => {
+    if (value && (value.length <= 3) ) {
+      callback('Username must be at least 4 characters long');
+    } else {
+      callback();
+    }
+  }
 
   compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form;
@@ -80,8 +95,11 @@ class RegistrationForm extends React.Component {
 
         <Form.Item>
         {getFieldDecorator('userName', {
-          rules: [{ required: true, message: 'Please input your username!' }],
-        })(
+          rules: [{ required: true, message: 'Please input your username!'
+        }, {
+          validator: this.validateUserName,
+        }],
+      })(
           <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
         )}
         </Form.Item>
