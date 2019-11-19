@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import * as actions from '../store/actions/auth';
 
 class NormalLoginForm extends React.Component {
-  
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -13,15 +13,22 @@ class NormalLoginForm extends React.Component {
         this.props.onAuth(values.userName, values.password);
       }
     });
-    this.props.history.push('/myprofile');
+  }
+
+  componentDidUpdate() {
+    const user = localStorage.getItem('username');
+    if(user) {
+      this.props.history.push('/myprofile');
+    }
   }
 
   render() {
 
     let errorMessage = null;
+
     if(this.props.error) {
         errorMessage = (
-            <p>{this.props.error.message}</p>
+            <p>{this.props.error.data}</p>
         );
     }
     const { getFieldDecorator } = this.props.form;

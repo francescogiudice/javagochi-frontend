@@ -19,16 +19,20 @@ class PersonalProfile extends React.Component {
 
     componentDidMount() {
         const user = localStorage.getItem('username');
-        this.props.dispatch(getUser(user));
-        this.props.dispatch(getOwnedJcs(user));
-        this.props.dispatch(getUserItems(user));
+        if(user) {
+          this.props.dispatch(getUser(user));
+          this.props.dispatch(getOwnedJcs(user));
+          this.props.dispatch(getUserItems(user));
+        }
     }
 
     componentDidUpdate() {
         const user = localStorage.getItem('username');
-        this.props.dispatch(getUser(user));
-        this.props.dispatch(getOwnedJcs(user));
-        this.props.dispatch(getUserItems(user));
+        if(user) {
+          this.props.dispatch(getUser(user));
+          this.props.dispatch(getOwnedJcs(user));
+          this.props.dispatch(getUserItems(user));
+        }
     }
 
     onClick = (item) => {
