@@ -5,7 +5,10 @@ import { Typography, Modal, Button, Form, InputNumber  } from 'antd';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ItemDetail from '../components/ItemDetail';
+import computeTotalDue from '../functions';
+
 const { Text } = Typography;
+
 
 class ItDetail extends React.Component {
 
@@ -74,7 +77,7 @@ class ItDetail extends React.Component {
                         <input type="hidden" id="user" name="user" value={localStorage.getItem('username')} />
                         <input type="hidden" id="race" name="race" value={item.name} />
                         <InputNumber min={1} max={99} defaultValue={1} onChange={this.increaseAmount} style={{ width: 85, marginRight: 15, marginBottom: 15 }} />
-                        <Button type="primary" htmlType="submit" style={{marginLeft: 10 }}>{"Purchase (" + item.cost * this.state.buying + " coins)"}</Button>
+                        <Button type="primary" htmlType="submit" style={{marginLeft: 10 }}>{"Purchase (" + computeTotalDue(this.state.buying, item.cost) + " coins)"}</Button>
                     </Form>
                 </div>
             );
