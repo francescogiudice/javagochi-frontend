@@ -17,6 +17,10 @@ const { Text } = Typography;
 
 class PersonalProfile extends React.Component {
 
+    state = {
+      firstReload: true
+    };
+
     componentDidMount() {
         const user = localStorage.getItem('username');
         if(user) {
@@ -28,10 +32,13 @@ class PersonalProfile extends React.Component {
 
     componentDidUpdate() {
         const user = localStorage.getItem('username');
-        if(user) {
+        if(user && this.state.firstReload) {
           this.props.dispatch(getUser(user));
           this.props.dispatch(getOwnedJcs(user));
           this.props.dispatch(getUserItems(user));
+          this.setState({
+            firstReload: false
+          })
         }
     }
 
